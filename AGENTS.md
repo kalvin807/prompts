@@ -7,15 +7,25 @@
 
 ## Code Style
 - Flatten code with early returns (`continue`, `return`, `break`) to avoid deep `if/else` nesting.
-- Prefix functions with `maybe_` if they can return `None`/`null`/`undefined` (e.g., `maybe_get_user`).
+- Prefix functions with `maybe` if they can return `None`/`null`/`undefined`. Use the casing convention of the language (e.g., `maybe_get_user` in Python, `maybeGetUser` in JS/TS).
 - Docstrings explain *why* or *how* — non-trivial info only. Do NOT write one-liners that repeat the function name.
 - Place imports at the top-level of the module. Never import inside functions.
 - Use implicit boolean checks (`if obj:`) generally. Explicitly check `0` or empty strings only when they are valid values. Avoid double negation.
+
+## Writing Style
+- Write rules and memory notes as direct imperative statements. One idea per bullet.
+- Do NOT use `- **Bold Label:** description` patterns. Just state the rule.
+- Use "Do NOT" for prohibitions, not "Forbidden" or "Never" buried mid-sentence.
+- Keep bullets short and scannable. If a rule needs a sub-case, indent it.
+- Include inline code examples where they clarify faster than prose.
+- Avoid restating what is obvious from the code or the toolchain.
 
 ## Plan Style
 - Verify you have the service layer context before writing code. Do not guess database schemas.
 - Clearly define what is in scope vs. out of scope.
 - PR descriptions and summaries include the "Why", the "Scope", and any agentic limitations (e.g., "Tests need human verification").
+- Make the plan extremely concise. Sacrifice grammar for the sake of concision.
+- At the end of each plan, give me a list of unresolved questions to answer, if any.
 
 ## Test Style
 - Use standalone functions, not classes. Keep tests short, focused, and flat.
